@@ -1,34 +1,5 @@
-# Raspberry-Face-Recognition
-Use Python and Open CV to recognize multi face and show the name
-#Sample to get video from PiCam
-# import the necessary packages
-from picamera.array import PiRGBArray
-from picamera import PiCamera
-import time
-import cv2
- 
-# initialize the camera and grab a reference to the raw camera capture
-camera = PiCamera()
-camera.resolution = (640, 480)
-camera.framerate = 32
-rawCapture = PiRGBArray(camera, size=(640, 480))
- 
-# allow the camera to warmup
-time.sleep(0.1)
- 
-# capture frames from the camera
-for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-	# grab the raw NumPy array representing the image, then initialize the timestamp
-	# and occupied/unoccupied text
-	image = frame.array
- 
-	# show the frame
-	cv2.imshow("Frame", image)
-	key = cv2.waitKey(1) & 0xFF
- 
-	# clear the stream in preparation for the next frame
-	rawCapture.truncate(0)
- 
-	# if the `q` key was pressed, break from the loop
-	if key == ord("q"):
-		break
+这是一个人脸识别的小程序 ，适合入门练习使用。
+使用的工具为python3.8+opencv库函数+mysql
+实现训练的人脸文件与数据库中的信息匹配并最终显示相关信息的功能
+原应用场景为：
+健身房人脸识别，如遇到为办卡的待宰羔羊就推销办卡，遇到已办卡的会员就显示相关信息，为其提供后需服务。
