@@ -12,7 +12,7 @@ vid_cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # For each person, one face id
-face_id = 4
+face_id = 3
 
 # Initialize sample face image
 count = 0
